@@ -1,5 +1,5 @@
 /**************************************************************************/
-/*  test_input_event.h                                                    */
+/*  test_base_button.h                                                    */
 /**************************************************************************/
 /*                         This file is part of:                          */
 /*                             GODOT ENGINE                               */
@@ -28,3 +28,25 @@
 /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                 */
 /**************************************************************************/
 
+#ifndef TEST_BASE_BUTTON_H
+#define TEST_BASE_BUTTON_H
+
+#include "scene/gui/base_button.h"
+
+#include "tests/test_macros.h"
+
+namespace TestBaseButton {
+
+TEST_CASE("[SceneTree][BaseButton] Initialization") {
+	BaseButton *basebutton = memnew(BaseButton);
+
+	SUBCASE("ActionMode should be by default ACTION_MODE_BUTTON_RELEASE") {
+		CHECK(basebutton->get_action_mode() == 1);
+	}
+
+	memdelete(basebutton);
+}
+
+} //namespace TestBaseButton
+
+#endif // TEST_BASE_BUTTON_H
